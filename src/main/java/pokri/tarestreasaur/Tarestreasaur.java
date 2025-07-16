@@ -4,6 +4,8 @@ import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import pokri.tarestreasaur.item.ModItemGroups;
+import pokri.tarestreasaur.item.ModItems;
 
 public class Tarestreasaur implements ModInitializer {
 	public static final String MOD_ID = "tarestreasaur";
@@ -18,6 +20,7 @@ public class Tarestreasaur implements ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-
+		ModItemGroups.registerItemGroups();
+		ModItems.registerModItems();
 	}
 }
