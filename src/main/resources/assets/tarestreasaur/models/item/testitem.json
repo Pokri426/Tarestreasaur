@@ -1,6 +1,6 @@
 {
-  "parent": "item/genrated",
+  "parent": "item/generated",
   "textures": {
-    "layer0": "tarestreasaur.item/testitem"
+    "layer0": "tarestreasaur:item/testitem"
   }
 }
