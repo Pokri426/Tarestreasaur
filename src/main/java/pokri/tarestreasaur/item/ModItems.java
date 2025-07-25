@@ -8,23 +8,36 @@ import pokri.tarestreasaur.Tarestreasaur;
 
 public class ModItems {
 
-    /*
-    this is the structure to create a new item (replace testitem with item name)
-     ps. you can ctrl click on a method to find out what you can do with it
+    public static Item createBasicItem(String name){
+        Item item = createAndRegisterItem(name, new FabricItemSettings());
+        return item;
+    }
 
-                             ⬇ (must be capatilized)   ⬇ (must be lowercase)
-    public static final Item TESTITEM = registerItem("testitem", new Item(new FabricItemSettings()));
+    // Register the item and add it to the creative tab
+    private static Item createAndRegisterItem(String name, FabricItemSettings settings) {
+        Item item = new Item(settings);
+        Registry.register(Registries.ITEM, new Identifier(Tarestreasaur.MOD_ID, name), item);
 
-     */
-    public static final Item TESTITEM = registerItem("testitem", new Item(new FabricItemSettings()));
+        // Add to creative tab
+        ModItemGroups.addItem(item);
 
-    private static Item registerItem(String name, Item item){
-        return Registry.register(Registries.ITEM, new Identifier(Tarestreasaur.MOD_ID, name),item);
+        return item;
     }
 
     public static void registerModItems() {
-        Tarestreasaur.LOGGER.info("Registering Mod Items for" + Tarestreasaur.MOD_ID);
+        Tarestreasaur.LOGGER.info("Registering Mod Items for " + Tarestreasaur.MOD_ID);
 
-
+        // Nothing else is needed here if all registration happens in the static fields above
     }
+
+    // Example item
+    public static final Item TESTITEM = createBasicItem("testitem");
+
+    //usage shown bellow if you want to crete an item with properties
+    //public static final Item TESTITEM = createAndRegisterItem("testitem", new FabricItemSettings());
+
+    // Put all Item instances bellow
 }
+
+
+
